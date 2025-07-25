@@ -1,17 +1,18 @@
 import multer from "multer";
+
+const allowdFileType = ['image/jpg', 'image/png', 'image/jpeg'];
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const allowdedFileType = ['image/jpg', 'image/png', 'image/jpeg'];
-        if (!allowdedFileType.includes(file.mimetype)) {
-            cb(new Error("This file type is now allowded"))
+
+        if (!allowdFileType.includes(file.mimetype)) {
+            return cb(new Error("This file type is now allowded"))
         }
 
         cb(null, "./storage");
-    }
-    ,
-    filename: function(req, file , cb){
-        cb(null, Date.now()+ "-" + file.originalname)
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + "-" + file.originalname)
     }
 })
 
-export default { multer, storage };
+export { multer, storage};
