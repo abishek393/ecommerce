@@ -1,4 +1,4 @@
-const requestHandller = (fn) =>{
+const errorHandle  = (fn) =>{
     return (req, res) =>{
         fn(req, res)
         .catch((err) =>{
@@ -6,4 +6,4 @@ const requestHandller = (fn) =>{
         })
     }
 }
-export default requestHandller;
+export default errorHandle;
