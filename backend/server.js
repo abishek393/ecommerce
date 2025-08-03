@@ -5,6 +5,7 @@ import userRouter from "./routes/userRoutes.js";
 import productRouter from "./routes/producRoutes.js";
 import wishlistRouter from "./routes/wishlistRouters.js";
 import categoryRouter from "./routes/categoryRoutes.js";
+import cartRouter from "./routes/cartRoutes.js"
 
 const app = express();
 dotenv.config();
@@ -17,6 +18,7 @@ app.use("/api", userRouter);
 app.use("/api/product", productRouter);
 app.use("/api/wishlist", wishlistRouter );
 app.use("/api/category", categoryRouter)
+app.use("/api/cart", cartRouter)
 
 app.listen(port, ()=>{
     console.log(`Server is connected to the port ${port}`);
